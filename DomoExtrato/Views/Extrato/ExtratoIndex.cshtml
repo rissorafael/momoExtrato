@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Extrato Data";
+}
+
+<h2>Selecione um Valor</h2>
+
+@using (Html.BeginForm("ProcessarValor", "Extrato", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Valores")
+        @Html.DropDownList("selectedValue", (SelectList)ViewBag.Valores, "Selecione um valor", new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+}

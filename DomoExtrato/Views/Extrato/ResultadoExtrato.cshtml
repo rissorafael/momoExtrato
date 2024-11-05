@@ -1,0 +1,36 @@
+﻿@using Newtonsoft.Json
+@{
+    ViewBag.Title = "Resultado Extrato";
+}
+
+<h2>Extrato</h2>
+
+    
+
+@if (ViewBag.Extrato != null)
+{
+    var extrato = ViewBag.Extrato as List<Extrato>;
+
+    <ul>
+        @foreach (var ext in extrato)
+        {
+            <li>@ext.Data</li>
+            <li>@ext.TipoTransacao</li>
+            <li>@ext.ValorMonetario</li>
+        }
+    </ul>
+
+    <form method="post" action="@Url.Action("GerarPdf")">
+        @Html.Hidden("extrato", JsonConvert.SerializeObject(extrato)) 
+        <button type="submit" class="btn btn-primary">Gerar PDF</button>
+    </form>
+
+}
+else
+{
+    <div class="alert alert-warning">
+        Nenhum valor foi selecionado.
+    </div>
+}
+
+

@@ -1,0 +1,64 @@
+version: '3.4'
+services:
+  domoextrato:
+    image: '${DOCKER_REGISTRY-}domoextrato'
+    networks:
+      - elastic
+    build:
+      context: .
+      dockerfile: DomoExtrato/Dockerfile
+ 
+  domoextratodatabase:
+    image: 'postgres:latest'
+    networks:
+      - elastic
+    container_name: domoextratodatabase
+    environment:
+      - POSTGRES_DB=DomoExtrato
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - './.containers/produts-db:/var/lib/postgresql/data'
+    ports:
+      - '5432:5432'
+ 
+  elasticsearch:
+    image: 'docker.elastic.co/elasticsearch/elasticsearch:8.7.1'
+    networks:
+      - elastic
+    container_name: domoextrato.elasticsearch
+    ports:
+      - '9200:9200'
+    volumes:
+      - 'elasticsearch-data:/usr/share/elasticsearch/data'
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+  
+  kibana:
+    image: 'docker.elastic.co/kibana/kibana:8.7.1'
+    networks:
+      - elastic
+    container_name: domoextrato.kibana
+    ports:
+      - '5601:5601'
+    depends_on:
+      - elasticsearch
+    environment:
+      - 'ELASTICSEARCH_URL=http://domoextrato.elasticsearch:9200'
+  
+  domoextrato.pgadmin-compose:
+    image: dpage/pgadmin4
+    networks:
+      - elastic
+    container_name: domoextrato.pgadmin-compose
+    environment:
+      PGADMIN_DEFAULT_EMAIL: renatogroff@yahoo.com.br
+      PGADMIN_DEFAULT_PASSWORD: PgAdmin2019!
+    ports:
+      - '15432:80'
+volumes:
+  elasticsearch-data: null
+networks:
+  elastic:
+    driver: bridge
