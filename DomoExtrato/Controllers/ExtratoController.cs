@@ -35,10 +35,6 @@ namespace DomoExtrato.Controllers
         [HttpPost]
         public IActionResult GerarPdf(string extrato)
         {
-            if (string.IsNullOrEmpty(extrato))
-            {
-                return NotFound("Nenhum extrato encontrado.");
-            }
             var pdfBytes = _extratoService.GerarPdfDeObjeto(extrato);
 
             return File(pdfBytes, "application/pdf", "extrato.pdf");
