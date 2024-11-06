@@ -4,7 +4,7 @@
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
     <DockerPublishLocally>False</DockerPublishLocally>
-    <ProjectGuid>3f5ab536-3328-43d3-aeab-287c00690c9c</ProjectGuid>
+    <ProjectGuid>712b5318-9f6c-4ec6-8663-9e071bb741cc</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
     <DockerServiceName>domoextrato</DockerServiceName>
