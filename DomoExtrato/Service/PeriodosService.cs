@@ -1,6 +1,5 @@
-﻿using DomoExtrato.Infra.Data;
-using DomoExtrato.Interfaces;
-using DomoExtrato.Models;
+﻿using DomoExtrato.Interfaces;
+
 
 namespace DomoExtrato.Service
 {

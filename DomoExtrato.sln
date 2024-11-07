@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomoExtrato", "DomoExtrato\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomoExtratoTest", "DomoExtratoTest\DomoExtratoTest.csproj", "{75C68A9A-F727-4B66-8ADD-33DF19D3FCFF}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{712B5318-9F6C-4EC6-8663-9E071BB741CC}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{75C68A9A-F727-4B66-8ADD-33DF19D3FCFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75C68A9A-F727-4B66-8ADD-33DF19D3FCFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75C68A9A-F727-4B66-8ADD-33DF19D3FCFF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{712B5318-9F6C-4EC6-8663-9E071BB741CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{712B5318-9F6C-4EC6-8663-9E071BB741CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{712B5318-9F6C-4EC6-8663-9E071BB741CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{712B5318-9F6C-4EC6-8663-9E071BB741CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
