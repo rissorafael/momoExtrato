@@ -23,6 +23,29 @@ services:
       - elasticsearch
     environment:
       - 'ELASTICSEARCH_URL=http://domoextrato.elasticsearch:9200'
+  domoextratodatabase:
+    image: 'postgres:latest'
+    networks:
+      - elastic
+    container_name: domoextrato.database
+    environment:
+      - POSTGRES_DB=DomoExtrato
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - './.containers/produts-db:/var/lib/postgresql/data'
+    ports:
+      - '5432:5432'
+  domoextrato.pgadmin-compose:
+    image: dpage/pgadmin4
+    networks:
+      - elastic
+    container_name: domoextrato.pgadmin-compose
+    environment:
+      PGADMIN_DEFAULT_EMAIL: renatogroff@yahoo.com.br
+      PGADMIN_DEFAULT_PASSWORD: PgAdmin2019!
+    ports:
+      - '15432:80'
 volumes:
   elasticsearch-data: null
 networks:
