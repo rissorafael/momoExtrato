@@ -1,4 +1,5 @@
 ﻿using DomoExtrato.Interfaces;
+using DomoExtrato.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -8,10 +9,12 @@ namespace DomoExtrato.Controllers
     {
         private readonly IExtratoService _extratoService;
         private readonly IPeriodosService _periodosService;
-        public ExtratoController(IExtratoService extratoService, IPeriodosService periodosService)
+        private readonly ILogger<ExtratoController> _logger;
+        public ExtratoController(IExtratoService extratoService, IPeriodosService periodosService, ILogger<ExtratoController> logger)
         {
             _extratoService = extratoService;
             _periodosService = periodosService;
+            _logger = logger;
         }
 
         [HttpGet]
