@@ -1,5 +1,4 @@
 ﻿using DomoExtrato.Interfaces;
-using DomoExtrato.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 

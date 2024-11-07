@@ -9,9 +9,10 @@ namespace DomoExtrato.Service
         private readonly IPeriodosRepository _periodosRepository;
         private readonly ILogger<PeriodosService> _logger;
 
-        public PeriodosService(IPeriodosRepository periodosRepository)
+        public PeriodosService(IPeriodosRepository periodosRepository, ILogger<PeriodosService> logger)
         {
             _periodosRepository = periodosRepository;
+            _logger = logger;
         }
         public async Task<List<int>> BuscarTodosPeriodosAsync()
         {
@@ -19,7 +20,7 @@ namespace DomoExtrato.Service
             {
                 var periodos = await _periodosRepository.BuscarTodosPeriodosAsync();
                 var periodoDias = periodos.Select(c => c.PeriodoDias).ToList();
-               
+
                 return periodoDias;
             }
             catch (Exception ex)

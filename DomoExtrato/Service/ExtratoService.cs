@@ -13,10 +13,11 @@ namespace DomoExtrato.Service
         private readonly ILogger<ExtratoService> _logger;
         private readonly IConverter _converter;
 
-        public ExtratoService(IExtratoRepository extratoRepository, IConverter converter)
+        public ExtratoService(IExtratoRepository extratoRepository, IConverter converter, ILogger<ExtratoService> logger)
         {
             _extratoRepository = extratoRepository;
             _converter = converter;
+            _logger = logger;
         }
 
         public async Task<IEnumerable<Extrato>> BuscarExtratoPorPeriodoAsync(int periodoDias)
